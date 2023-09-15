@@ -1,0 +1,154 @@
+:root {
+    /*sizes*/
+    --box-size :50px ;
+    --text-size: calc(var(--box-size)*0.7);
+
+
+    /*colors*/
+    --bg-color : hsl(215, 78%, 83%); 
+    --header-color: hsl(215, 77%, 86%); 
+    --cell-color :  hsl(137, 11%, 87%);
+    --ligher-border: hsl(140, 20%, 97%);
+    --darker-border: hsl(150, 1%, 47%);
+
+   
+}
+* {
+    box-sizing: border-box;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    /* margin: 0 auto; */
+}
+body{
+    background-color:var(--bg-color);
+    margin: 0;
+}
+.header {
+    background-color: var(--header-color);
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom:1px solid black;
+    letter-spacing: 2px;
+    
+}
+header a {
+    text-decoration: none;
+    color: blue;
+}
+header a:hover {
+    color: white;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.gamearea {
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.states {
+    display: flex;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.flag {
+    font-size: calc(var(--text-size)*0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 5px;
+}
+
+.flag img {
+    width: calc(var(--text-size)*0.4);
+    height:  calc(var(--text-size)*0.4);
+}
+.field {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    width: auto;
+}
+
+.cell {
+    background-color:var(--cell-color);
+    border-left: 5px solid var(--ligher-border);
+    border-top: 5px solid var(--ligher-border);
+    border-right: 5px solid var(--darker-border);
+    border-bottom: 5px solid var(--darker-border);
+
+
+    height: var(--box-size);
+    width: var(--box-size);
+    font-size: calc(var(--text-size)*0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.cell:not(.exploded,.revealed,.flagged,.defused):hover{
+    background-color:white;
+}
+
+.revealed {
+    border : 0.5px solid #636664;
+}
+
+ .flagged {
+    background-image: url("flag.png");  
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+} 
+
+.exploded {
+    transition: none;
+    border : 0.5px solid hsl(140, 1%, 39%);
+    background-color:rgb(239, 132, 132);
+    background-image: url("explode.png");  
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+.defused {
+    border : 0.5px solid #636664;
+    background-color:rgb(196, 248, 119);
+    background-image: url("mine.png");  
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.restart {
+ margin: 10px;
+ height: 30px;
+ border-radius: 20px;
+ color: white;
+ background-color: black;
+ text-transform: uppercase;
+letter-spacing: 3px;
+}
+.restart:hover {
+    color: black;
+    background-color: var(--bg-color);
+}
+.result {
+    font-size: 30px;
+}
+
